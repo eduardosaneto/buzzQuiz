@@ -68,15 +68,58 @@ body {
     border-radius: 50px;
 }
 
+.seus-quizes {
+    width: 100%;
+    margin-top: 138px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    display: flex;  
+    flex-direction: column;
+    align-items: flex-start;    
+    justify-content: space-between;         
+}
+
+.titulo-seus-quizes {
+    width: 100%;  
+    display: flex;
+    align-items: center;
+}
+
+ion-icon {
+    color: #EC362D;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.seus-quizes ul {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 12px;  
+    margin-bottom: 48px;    
+}
+
+.seus-quizes li {
+    width: 340px;
+    height: 181px;
+    border-radius: 5px;
+    position: relative;
+    margin-right: 15px;
+}
+
+.seus-quizes li:last-child {
+    margin-right: 0px;
+}
+
 .todos-quizes {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center;      
 }
 
-.todos-quizes span {
+.titulo-quizes, .titulo-seus-quizes {
     width: 100%;
     color: #000;
     font-weight: 700;
@@ -104,7 +147,7 @@ li img {
     height: 100%;
 }
 
-.todos-quizes .titulo-imagem {
+.titulo-imagem {
     font-size: 19px;
     line-height: 22.27px;
     position: absolute;
@@ -112,6 +155,10 @@ li img {
     bottom: 7px;
     font-weight: 300;
     color: #fff;
+}
+
+.escondido {
+    display: none;
 }
 
 @media(max-width: 1100px) {
@@ -126,7 +173,6 @@ li img {
     .todos-quizes ul {
         flex-direction: column;
     }
-
     
     .todos-quizes ul:last-child {
         margin-top: 0;
@@ -145,4 +191,32 @@ li img {
         margin-bottom: 14px;       
         position: relative;
     }
+
+    .escondido {
+        display: none;
+    }
+
+    .seus-quizes {
+        width: 100%;
+        max-width: 340px;
+        margin: 38px 0 38px 0;        
+    }
+
+    .seus-quizes ul {
+        flex-direction: column;
+        margin-bottom: 0px;
+    }    
+
+    .seus-quizes li {
+        margin-bottom: 14px;
+    }
+
+    .seus-quizes li:last-child {
+        margin-bottom: 0px;
+    }
+
+    .titulo-seus-quizes {
+        justify-content: space-between;
+    }
+
 }
