@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/criacaoQuizz.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;700&display=swap" rel="stylesheet">
     </html>
     <body>
@@ -74,5 +75,191 @@
                 </ul>
             </div>
         </section>
+
+        <!-- TELA DO EDUARDO -->
+        <section class="criacao-quiz escondido">
+
+            <!-- Info básica -->
+
+            <section class="etapa-de-criacao">
+                <span class="titulo-da-etapa">
+                    Comece pelo começo
+                </span>
+                <div class="entrada-de-dados">
+                    <input type="text" placeholder="Título do seu quizz">
+                    <input type="text" placeholder="URL da imagem do seu quizz">
+                    <input type="text" placeholder="Quantidade de perguntas do quizz">
+                    <input type="text" placeholder="Quantidade de níveis do quizz">
+                </div>
+                <button class="avancar">Prosseguir pra criar perguntas</button>
+            </section>
+                
+            <!-- Pergunta do quiz -->
+
+            <section class="etapa-de-criacao escondido">
+                <span class="titulo-da-etapa">
+                    Crie suas perguntas
+                </span>
+
+                <div class="entrada-de-dados">
+                    <span>
+                        Pergunta 1
+                        <ion-icon class="abrir-opcao escondido" name="open-outline"></ion-icon>
+                    </span>
+                    <div class="">
+                        <input type="text" placeholder="Texto da pergunta">
+                        <input type="text" placeholder="Cor de fundo da pergunta">
+                        <span>
+                            Resposta correta
+                        </span>
+                        <input type="text" placeholder="Resposta correta">
+                        <input type="text" placeholder="URL da imagem">
+                        <div class="respostas">
+                            <span>
+                                Respostas incorretas
+                            </span>
+                            <input type="text" placeholder="Resposta incorreta 1">
+                            <input type="text" placeholder="URL da imagem 1">
+
+                            <input type="text" placeholder="Resposta incorreta 2">
+                            <input type="text" placeholder="URL da imagem 2">
+
+                            <input type="text" placeholder="Resposta incorreta 3">
+                            <input type="text" placeholder="URL da imagem 3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="entrada-de-dados">
+                    <span>
+                        Pergunta 2
+                        <ion-icon class="abrir-opcao" name="open-outline"></ion-icon>
+                    </span>
+                    <div class="escondido">
+                        <input type="text" placeholder="Texto da pergunta">
+                        <input type="text" placeholder="Cor de fundo da pergunta">
+                        <div class="respostas">    
+                            <span>
+                                Resposta correta
+                            </span>
+                            <input type="text" placeholder="Resposta correta">
+                            <input type="text" placeholder="URL da imagem">
+                            <div class="respostas">
+                                <span>
+                                    Respostas incorretas
+                                </span>
+                                <input type="text" placeholder="Resposta incorreta 1">
+                                <input type="text" placeholder="URL da imagem 1">
+    
+                                <input type="text" placeholder="Resposta incorreta 2">
+                                <input type="text" placeholder="URL da imagem 2">
+    
+                                <input type="text" placeholder="Resposta incorreta 3">
+                                <input type="text" placeholder="URL da imagem 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="entrada-de-dados">
+                    <span>
+                        Pergunta 3
+                        <ion-icon class="abrir-opcao" name="open-outline"></ion-icon>
+                    </span>
+                    <div class="escondido">
+                        <input type="text" placeholder="Texto da pergunta">
+                        <input type="text" placeholder="Cor de fundo da pergunta">
+                        <div class="respostas">    
+                            <span>
+                                Resposta correta
+                            </span>
+                            <input type="text" placeholder="Resposta correta">
+                            <input type="text" placeholder="URL da imagem">
+                            <div class="respostas">
+                                <span>
+                                    Respostas incorretas
+                                </span>
+                                <input type="text" placeholder="Resposta incorreta 1">
+                                <input type="text" placeholder="URL da imagem 1">
+    
+                                <input type="text" placeholder="Resposta incorreta 2">
+                                <input type="text" placeholder="URL da imagem 2">
+    
+                                <input type="text" placeholder="Resposta incorreta 3">
+                                <input type="text" placeholder="URL da imagem 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="avancar">Prosseguir pra criar níveis</button>
+            </section>
+
+            <!-- Níveis do quiz -->
+
+            <section class="etapa-de-criacao escondido">
+                <span class="titulo-da-etapa">
+                    Crie suas perguntas
+                </span>
+
+                <div class="entrada-de-dados">
+                    <span>
+                        Nivel 1
+                        <ion-icon class="abrir-opcao escondido" name="open-outline"></ion-icon>
+                    </span>
+                    <div class="">
+                        <input type="text" placeholder="Título do nível">
+                        <input type="text" placeholder="% de acerto mínima">
+                        <input type="text" placeholder="URL da imagem do nível">
+                        <input type="text" placeholder="Descrição do nível">
+                    </div>
+                </div>
+
+                <div class="entrada-de-dados">
+                    <span>
+                        Nivel 2
+                        <ion-icon class="abrir-opcao" name="open-outline"></ion-icon>
+                    </span>
+                    <div class="escondido">
+                        <input type="text" placeholder="Título do nível">
+                        <input type="text" placeholder="% de acerto mínima">
+                        <input type="text" placeholder="URL da imagem do nível">
+                        <input type="text" placeholder="Descrição do nível">
+                    </div>
+                </div>
+
+                <div class="entrada-de-dados">
+                    <span>
+                        Nivel 3
+                        <ion-icon class="abrir-opcao" name="open-outline"></ion-icon>
+                    </span>
+                    <div class="escondido">
+                        <input type="text" placeholder="Título do nível">
+                        <input type="text" placeholder="% de acerto mínima">
+                        <input type="text" placeholder="URL da imagem do nível">
+                        <input type="text" placeholder="Descrição do nível">
+                    </div>
+                </div>
+
+                <button class="avancar">Finalizar Quizz</button>
+            </section>
+
+            <!-- Sucesso do quiz -->
+
+            <section class="etapa-de-criacao escondido">
+                <span class="titulo-da-etapa">
+                    Crie suas perguntas
+                </span>
+                <div class="imagem-quiz">
+                    <img src="assets/images/Rectangle34.png" alt="">
+                    <span class="titulo-imagem">titulo da imagem</span>
+                </div>
+                <button class="avancar">Acessar Quizz</button>
+                <button class="volta-inicio">Voltar pra home</button>
+
+            </section>
+        </section>
+
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script src="assets/javascript/script.js"></script>
     </body>
