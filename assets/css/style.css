@@ -257,6 +257,29 @@ li img {
     color: #484848;    
 }
 
+.reiniciar-quiz {
+    font-family: 'Roboto';
+    width: 260px;
+    height: 52px;
+    background-color: #EC362D;
+    border-radius: 15px;
+    font-size: 18px;
+    color: #FFF5F4;
+    border: none;
+}
+
+.voltar-home {
+    margin-top: 20px;
+    font-family: 'Roboto';
+    width: 260px;
+    height: 52px;
+    background-color:#FFF;
+    border-radius: 15px;
+    font-size: 18px;
+    color: #818181;
+    border: none;
+}
+
 
 
 @media(max-width: 1100px) {
@@ -357,6 +380,10 @@ li img {
     .quiz-acerto .opcao span {
         width: 100%;
     }
-   
+
+    .reiniciar-quiz, .voltar-home {
+        width: 220px;
+        height: 44px;
+    }   
 
 }
