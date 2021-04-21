@@ -15,7 +15,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);    
 }
 
 .topo span {
@@ -182,6 +182,7 @@ li img {
     width: 100%; 
     height: 227px;
     position: relative;
+    margin-bottom: 70px;
 }
 
 .banner-titulo {           
@@ -199,13 +200,14 @@ li img {
 .banner-quiz img {
     width: 100%;    
     height: 100%;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57));
 }
 
 .quiz-pergunta, .quiz-acerto {
     width: 100%;
     max-width: 750px;
-    height: auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    /* margin-top: 42px;                                                                                                                                  */
+    height: auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
+    margin: 0 auto;
     margin-bottom: 50px;
     padding: 27px 36px 36px 36px;
     background-color: #fff;
@@ -226,7 +228,8 @@ li img {
 .header-pergunta span {
     color: #FFFFFF;
     font-size: 23px; 
-    font-weight: 700;  
+    font-weight: 700;
+    padding: 10px;  
 }
 
 .opcoes {
@@ -260,15 +263,22 @@ li img {
 
 .quiz-acerto {
     height: 440px;
+    margin-bottom: 90px;
+}
+
+.quiz-acerto .opcoes {    
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .quiz-acerto .header-pergunta {
     background: #EC362D;
     height: 100px;
+    padding: 10px;
 }
 
 .quiz-acerto .opcao span {
-    width: 328px;   
+    width: 300px;   
     font-size: 19px;
     line-height: 25px; 
     text-align: left;
