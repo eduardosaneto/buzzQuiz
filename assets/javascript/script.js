@@ -37,20 +37,15 @@ function buscaQuizClicado (idQuizClicado) {
 }
 
 function renderizaQuizClicado (resposta){    
-    const dados = resposta.data;
-    console.log(dados)    
-    const identificador = dados.id;
-    console.log(identificador)
+    const dados = resposta.data;        
+    const identificador = dados.id;   
     const imagemQuiz = dados.image;    
     const tituloQuiz = dados.title;
-    let questoes = dados.questions;
-    console.log(questoes)  
+    let questoes = dados.questions;    
     respostas = questoes[0].answers;    
-    console.log(respostas) 
-    const quizPergunta = document.querySelector(".quiz-pergunta");            
+               
     const paginaQuiz = document.querySelector(".pagina-quiz")    
-    paginaQuiz.innerHTML = "";
-    // paginaQuiz.innerHTML = 
+    paginaQuiz.innerHTML = "";  
           
         let resultadoFinal = `
             <div class="banner-quiz">
@@ -59,7 +54,9 @@ function renderizaQuizClicado (resposta){
             </div>             
             `;
 
-        for (let i = 0; i < questoes.length; i++) {                   
+        for (let i = 0; i < questoes.length; i++) {          
+                        
+            
             resultadoFinal +=             
             ` <div class="quiz-pergunta">
                 <div style="background: ${questoes[i].color}" class="header-pergunta">
@@ -68,105 +65,67 @@ function renderizaQuizClicado (resposta){
             ` 
             let opcoes = "<div class='opcoes'>" 
 
-            for (let j = 0; j < questoes[i].answers.length; j++) {   
-                                             
+            const listaRespostas = questoes[i].answers;
+            console.log(listaRespostas)
+            listaRespostas.sort(embaralha);
+
+            for (let j = 0; j < questoes[i].answers.length; j++) {    
+                                                                           
                 opcoes += `                                
-                            <div class="opcao">
-                                <img src="${questoes[i].answers[j].image}" alt="gato">
-                                <span>${questoes[i].answers[j].text}</span>
-                            </div>
-                                                                                                                                                
-                        `    
-                
+                    <div class="opcao ${questoes[i].answers[j].isCorrectAnswer}" onclick="cliqueNaOpcao(this)">
+                        <img src="${questoes[i].answers[j].image}" alt="gato">
+                        <span>${questoes[i].answers[j].text}</span>
+                    </div>                                                                                                                                                
+                    `     
             } 
            
             resultadoFinal += opcoes; 
             resultadoFinal += "</div> </div>"
-            paginaQuiz.innerHTML = resultadoFinal;
-            console.log(resultadoFinal)
-                          
-        }     
-        
-        
-       
-
-        // if (respostas.length === 3){
-        //     const quizPergunta = document.querySelector(".quiz-pergunta");
-        //     quizPergunta.innerHTML +=
-        //     `
-        //     <div class="opcoes">
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i].text}</span>
-        //             </div>    
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i+1].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i+1].text}</span>
-        //             </div>    
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i+2].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i+2].text}</span>
-        //             </div>                                         
-        //     </div> 
-
-        //     `
-        // }
-
-        // if (respostas.length === 4){
-        //     const quizPergunta = document.querySelector(".quiz-pergunta");
-        //     quizPergunta.innerHTML +=                 
-        //     `
-        //     <div class="opcoes">
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i].text}</span>
-        //             </div>    
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i+1].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i+1].text}</span>
-        //             </div>    
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i+2].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i+2].text}</span>
-        //             </div> 
-        //             <div class="opcao">
-        //                 <img src="${questoes[i].answers[i+3].image}" alt="gato">
-        //                 <span>${questoes[i].answers[i+3].text}</span>
-        //             </div>                                        
-        //     </div> 
-
-        //     `
-        // }
-    // }        
-    
-    // const niveis = dados.levels;    
-    //     for (let i = 0; i < niveis.length; i++) {
-    //         if(niveis[i].minValue === 0) {  
-    //             paginaQuiz.innerHTML += `
-    //             <div class="quiz-acerto">
-    //                 <div class="header-pergunta">
-    //                     <span>${niveis[i].title}</span>
-    //                 </div>
-    //                 <div class="opcoes">
-    //                     <div class="opcao">
-    //                         <img src="${niveis[i].image}" alt="dumbledore">                        
-    //                     </div>    
-    //                     <div class="opcao">                        
-    //                         <span>${niveis[i].text}</span>
-    //                     </div>                    
-    //                 </div>      
-    //             </div> 
-    //             <button class="reiniciar-quiz">Reiniciar quizz</button> 
-    //             <button class="voltar-home">Voltar para home</button> 
-    //             `                  
-    //         }
-
-    //         if(niveis[i].minValue > 0 && niveis[i].minValue < 60) {  
-    //         }
-    //     }
-
+            paginaQuiz.innerHTML = resultadoFinal;                                                
+        } 
+          
 }
 
+function embaralha(){
+    return Math.random() - 0.5;  
+}
+
+function cliqueNaOpcao (opcaoClicada){          
+    const aplicaEsbranquicadoOpcoes = opcaoClicada.parentNode; 
+    const listaOpcoes = aplicaEsbranquicadoOpcoes.children;    
+
+    for (let i = 0; i < listaOpcoes.length; i++){
+        listaOpcoes[i].classList.add("esbranquiçado");
+        listaOpcoes[i].setAttribute("onclick", "");        
+        
+        if (listaOpcoes[i].classList.contains('true')) {
+            const span = listaOpcoes[i].querySelector("span");
+            span.classList.add('certa')
+        } else {
+            const span = listaOpcoes[i].querySelector("span");
+            span.classList.add('errada')
+        }
+    }
+
+    opcaoClicada.classList.remove("esbranquiçado") 
+    
+    setTimeout(proximaPergunta, 2000)
+}
+
+function proximaPergunta () {
+    const quizes = document.querySelector(".quiz-pergunta");
+    const todosOsQuizes = quizes.parentNode;
+    console.log(todosOsQuizes)
+
+    for (let i = 0; i < todosOsQuizes.length; i++){
+        console.log("entrei no for")
+        quizes[i].scrollIntoView();
+    }
+    // const elementoQueQueroQueApareca = document.querySelector('.quiz-pergunta');
+    // todosOsQuizes.scrollIntoView();
+}
+
+     
 
 function criaQuiz() {  
     const paginaPrincipal = document.querySelector(".pagina-principal");
