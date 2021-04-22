@@ -46,35 +46,48 @@ function renderizaQuizClicado (resposta){
     let questoes = dados.questions;
     console.log(questoes)  
     respostas = questoes[0].answers;    
-    console.log(respostas)           
+    console.log(respostas) 
+    const quizPergunta = document.querySelector(".quiz-pergunta");            
     const paginaQuiz = document.querySelector(".pagina-quiz")    
     paginaQuiz.innerHTML = "";
-    paginaQuiz.innerHTML = 
-        `
+    // paginaQuiz.innerHTML = 
+          
+        let resultadoFinal = `
             <div class="banner-quiz">
                 <span class="banner-titulo">${tituloQuiz}</span>
                 <img src="${imagemQuiz}" alt="banner-quiz">
             </div>             
-        `   
-      
+            `;
+
         for (let i = 0; i < questoes.length; i++) {                   
-            paginaQuiz.innerHTML +=             
+            resultadoFinal +=             
             ` <div class="quiz-pergunta">
                 <div style="background: ${questoes[i].color}" class="header-pergunta">
-                <span>${questoes[i].title}</span>              
-            </div>                    
-            `            
-            const quizPergunta = document.querySelector(".quiz-pergunta");                                   
-            quizPergunta.innerHTML += ` 
-                    <div class="opcoes">             
-                        <div class="opcao">
-                            <img src="${questoes[i].answers[i].image}" alt="gato">
-                            <span>${questoes[i].answers[i].text}</span>
-                        </div>
-                    </div>                                                                                                                  
+                <span>${questoes[i].title}</span> 
+                </div>                                     
+            ` 
+            let opcoes = "<div class='opcoes'>" 
+
+            for (let j = 0; j < questoes[i].answers.length; j++) {   
+                                             
+                opcoes += `                                
+                            <div class="opcao">
+                                <img src="${questoes[i].answers[j].image}" alt="gato">
+                                <span>${questoes[i].answers[j].text}</span>
+                            </div>
+                                                                                                                                                
+                        `    
                 
-            `             
-        }        
+            } 
+           
+            resultadoFinal += opcoes; 
+            resultadoFinal += "</div> </div>"
+            paginaQuiz.innerHTML = resultadoFinal;
+            console.log(resultadoFinal)
+                          
+        }     
+        
+        
        
 
         // if (respostas.length === 3){
