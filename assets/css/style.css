@@ -352,6 +352,21 @@ li img {
     border: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+.topo:hover {
+    cursor: pointer;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+img:hover {
+    cursor: pointer;
+}
 
 @media(max-width: 1100px) {
     .pagina-principal {
