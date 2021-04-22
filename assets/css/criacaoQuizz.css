@@ -16,6 +16,10 @@
     align-items: center;
 }
 
+.etapa-de-criacao div {
+    width: 100%;
+}
+
 .titulo-da-etapa {
     width: 100%;
     margin: 60px auto 10px auto;
@@ -27,7 +31,7 @@
     color: #000;
 }
 
-.entrada-de-dados {
+.entrada-de-dados, .entrada-de-perguntas, .entrada-de-niveis {
     width: 100%;
     height: auto;
     padding: 21px 18px 16px 18px;
@@ -40,7 +44,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
-.entrada-de-dados span {
+.entrada-de-dados span,  .entrada-de-perguntas span, .entrada-de-niveis span {
     width: 100%;
     font-size: 20px;
     font-weight: 700;
@@ -50,11 +54,34 @@
     align-items: center; 
 }
 
-.entrada-de-dados span:first-child {
+.entrada-de-dados span:first-child, 
+.entrada-de-perguntas span:first-child, 
+.entrada-de-niveis span:first-child{
     padding: 7px 0 14px 0;
 }
 
-.entrada-de-dados input {
+.entrada-de-dados div, .entrada-de-perguntas div, .entrada-de-niveis div{
+    width: 100%;
+}
+
+.caixa-perguntas, .resposta-correta, .respostas-incorretas .niveis {
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-repostas-incorretas {
+    width: 100%;
+}
+
+.respostas-incorretas input:nth-child(even) {
+    margin-bottom: 32px;
+}
+
+.respostas-incorretas:last-child input:last-child {
+    margin-bottom: 12px;
+}
+
+.entrada-de-dados input, .entrada-de-perguntas input, .entrada-de-niveis input {
     width: 100%;
     max-width: 564px;
     height: 46px;
@@ -62,26 +89,18 @@
     border-radius: 5px;
     font-size: 19px;
     font-style: italic;
-    color: #D1D1D1;
+    color: #000;
     padding-left: 23px;
     margin-bottom: 12px;
 }
 
-.respostas span:first-child {
-    padding-top: 16px;
-}
-
-.respostas input:nth-child(odd) {
-    margin-bottom: 32px;
-}
-
-.respostas input:last-child {
-    margin-bottom: 12px;
-}
-
-.abrir-opcao {
+.expandir-pergunta, .expandir-nivel {
     font-size: 23px;
-    color: black;
+    color: #fff;
+}
+
+.visivel {
+    color: #000;
 }
 
 .imagem-quiz {
@@ -125,6 +144,13 @@
     margin-right: 18px;
 }
 
+.botao {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .avancar{
     background: #EC362D;
     color: #FFF5F4;
@@ -143,7 +169,7 @@
         font-size: 20px;
     }
 
-    .entrada-de-dados input {
+    .entrada-de-dados input, .entrada-de-perguntas input, .entrada-de-niveis input {
         padding-left: 14px;
         font-size: 14px;
     }
