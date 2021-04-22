@@ -42,7 +42,7 @@ function renderizaQuizClicado (resposta){
     const imagemQuiz = dados.image;    
     const tituloQuiz = dados.title;
     let questoes = dados.questions;    
-    respostas = questoes[0].answers;    
+    // respostas = questoes[0].answers;    
                
     const paginaQuiz = document.querySelector(".pagina-quiz")    
     paginaQuiz.innerHTML = "";  
