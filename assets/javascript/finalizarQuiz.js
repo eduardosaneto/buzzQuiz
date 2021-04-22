@@ -1,4 +1,4 @@
-function criaQuiz() {
+function finalizarQuiz() {
     
     const dadosQuiz = 
     {
@@ -24,4 +24,4 @@ function retornaErro(error) {
     alert("Você não criou um quizz");
 }
 
-avancar[2].addEventListener('click', criaQuiz);
+avancar[2].addEventListener('click', finalizarQuiz);
