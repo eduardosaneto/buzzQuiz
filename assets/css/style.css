@@ -1,7 +1,7 @@
 body {
     background-color: #FAFAFA;
     font-family: 'Roboto', sans-serif;
-    font-style: normal;
+    font-style: normal;    
 }
 
 .topo {
@@ -288,8 +288,6 @@ li img {
     color: #EC362D !important;      
 }
 
-
-
 .esbranquiçado {
     opacity: 0.3;
 }
@@ -322,7 +320,8 @@ li img {
     font-size: 19px;
     line-height: 25px; 
     text-align: left;
-    color: #484848;    
+    color: #484848; 
+    word-break: break-word;   
 }
 
 .quiz-acerto img {

@@ -1,8 +1,13 @@
 let idQuizesRenderizados = [];
+let questoes = null;
+let guardaAcertos = 0;
+let leveis = null;
+let tituloLevel = null;
+let textoLevel = null;
+let imagemLevel = null;
 
 function obterQuizes() {
-    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes");
-    console.log(promessa)
+    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes");    
     promessa.then(renderizaQuizes);
 }
 
@@ -31,8 +36,7 @@ function abreTelaQuiz () {
 
 
 function buscaQuizClicado (idQuizClicado) {       
-    const promessa = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/${idQuizClicado}`);
-    console.log(idQuizClicado)
+    const promessa = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/${idQuizClicado}`);    
     promessa.then(renderizaQuizClicado) 
 }
 
@@ -41,8 +45,8 @@ function renderizaQuizClicado (resposta){
     const identificador = dados.id;   
     const imagemQuiz = dados.image;    
     const tituloQuiz = dados.title;
-    let questoes = dados.questions;    
-    // respostas = questoes[0].answers;    
+    questoes = dados.questions;
+    leveis = dados.levels;          
                
     const paginaQuiz = document.querySelector(".pagina-quiz")    
     paginaQuiz.innerHTML = "";  
@@ -58,21 +62,20 @@ function renderizaQuizClicado (resposta){
                         
             
             resultadoFinal +=             
-            ` <div class="quiz-pergunta">
+            ` <div id="${i}" class="quiz-pergunta">
                 <div style="background: ${questoes[i].color}" class="header-pergunta">
                 <span>${questoes[i].title}</span> 
                 </div>                                     
             ` 
             let opcoes = "<div class='opcoes'>" 
 
-            const listaRespostas = questoes[i].answers;
-            console.log(listaRespostas)
+            const listaRespostas = questoes[i].answers;            
             listaRespostas.sort(embaralha);
 
             for (let j = 0; j < questoes[i].answers.length; j++) {    
                                                                            
                 opcoes += `                                
-                    <div class="opcao ${questoes[i].answers[j].isCorrectAnswer}" onclick="cliqueNaOpcao(this)">
+                    <div class="opcao ${questoes[i].answers[j].isCorrectAnswer}" onclick="cliqueNaOpcao(this); verificaAcertos(this)">
                         <img src="${questoes[i].answers[j].image}" alt="gato">
                         <span>${questoes[i].answers[j].text}</span>
                     </div>                                                                                                                                                
@@ -81,7 +84,7 @@ function renderizaQuizClicado (resposta){
            
             resultadoFinal += opcoes; 
             resultadoFinal += "</div> </div>"
-            paginaQuiz.innerHTML = resultadoFinal;                                                
+            paginaQuiz.innerHTML = resultadoFinal;                                                           
         } 
           
 }
@@ -100,32 +103,66 @@ function cliqueNaOpcao (opcaoClicada){
         
         if (listaOpcoes[i].classList.contains('true')) {
             const span = listaOpcoes[i].querySelector("span");
-            span.classList.add('certa')
+            span.classList.add('certa')            
         } else {
             const span = listaOpcoes[i].querySelector("span");
-            span.classList.add('errada')
+            span.classList.add('errada')                      
+        }       
+    }      
+    
+    opcaoClicada.classList.remove("esbranquiçado");          
+    setTimeout(levaPraProximaPergunta, 2000, opcaoClicada);   
+     
+}
+
+function verificaAcertos (opcaoClicada){      
+    if (opcaoClicada.classList.contains("true")){ 
+        guardaAcertos++           
+    }
+}
+
+function levaPraProximaPergunta(opcaoClicada) {
+    const idDaPergunta = opcaoClicada.parentNode.parentNode.id;    
+    const idDaProximaPergunta = (parseInt(idDaPergunta) + 1).toString();
+    const calculoAcerto = Math.floor((guardaAcertos/questoes.length)*100); 
+
+
+    if (parseInt(idDaProximaPergunta) === questoes.length) {
+        const paginaQuiz = document.querySelector(".pagina-quiz")    
+            paginaQuiz.innerHTML += ` 
+            <div class="quiz-acerto">
+                <div class="header-pergunta">
+                    <span>${calculoAcerto}% de acerto: ${tituloLevel}</span>
+                </div>
+                <div class="opcoes">
+                    <div class="opcao">
+                        <img src="${imagemLevel}" alt="dumbledore">                        
+                    </div>    
+                    <div class="opcao">                        
+                        <span>${textoLevel}</span>
+                    </div>                    
+                </div>      
+            </div> 
+            <button class="reiniciar-quiz">Reiniciar quizz</button> 
+            <button class="voltar-home">Voltar para home</button>
+            `             
+        document.querySelector(".quiz-acerto").scrollIntoView({behavior:"smooth"});        
+    }
+
+    else {
+        document.getElementById(idDaProximaPergunta).scrollIntoView({behavior:"smooth"});
+    }
+
+    for (let i = 0; i < leveis.length; i++){
+        if (calculoAcerto >= leveis[i].minValue){
+           textoLevel = leveis[i].text;
+           tituloLevel = leveis[i].title;
+           imagemLevel = leveis[i].image;
         }
     }
+}   
 
-    opcaoClicada.classList.remove("esbranquiçado") 
-    
-    setTimeout(proximaPergunta, 2000)
-}
 
-function proximaPergunta () {
-    const quizes = document.querySelector(".quiz-pergunta");
-    const todosOsQuizes = quizes.parentNode;
-    console.log(todosOsQuizes)
-
-    for (let i = 0; i < todosOsQuizes.length; i++){
-        console.log("entrei no for")
-        quizes[i].scrollIntoView();
-    }
-    // const elementoQueQueroQueApareca = document.querySelector('.quiz-pergunta');
-    // todosOsQuizes.scrollIntoView();
-}
-
-     
 
 function criaQuiz() {  
     const paginaPrincipal = document.querySelector(".pagina-principal");
