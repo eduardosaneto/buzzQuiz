@@ -131,17 +131,18 @@ ion-icon {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:flex-start;
     align-items: center;  
     margin-top: 12px; 
 }
 
 .todos-quizes ul li{
-    width: 340px;
+    width: 338px;
     height: 181px;
     border-radius: 5px;
     position: relative;
     margin-bottom: 15px;    
+    margin-right: 12px;  
 }
 
 li img {
@@ -182,7 +183,7 @@ li img {
     width: 100%; 
     height: 227px;
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 70px;       
 }
 
 .banner-titulo {           
@@ -194,23 +195,22 @@ li img {
     font-weight: 400;
     font-size: 39px;      
     text-align: center; 
-    position: absolute;
+    position: absolute;   
 }
 
 .banner-quiz img {
-    width: 100%;    
-    height: 100%;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57));
+    width: 100%;      
+    height: 100%;       
 }
 
 .quiz-pergunta, .quiz-acerto {
     width: 100%;
     max-width: 750px;
-    height: auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
+    height: auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     margin: 0 auto;
     margin-bottom: 50px;
     padding: 27px 36px 36px 36px;
-    background-color: #fff;
+    background-color: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);    
 }
 
@@ -249,7 +249,9 @@ li img {
 
 .opcao img {
     width: 100%;
+    max-width: 329px;
     height: 100%;
+    max-height: 174px;
 }
 
 .opcao span{
@@ -259,6 +261,10 @@ li img {
     font-size: 20px;
     line-height: 23.44px;
     font-weight: 700; 
+}
+
+.esbranquiçado {
+    opacity: 0.3;
 }
 
 .quiz-acerto {
@@ -283,6 +289,11 @@ li img {
     line-height: 25px; 
     text-align: left;
     color: #484848;    
+}
+
+.quiz-acerto img {
+    max-width:364px;
+    max-height: 273px;
 }
 
 .reiniciar-quiz {
@@ -319,7 +330,7 @@ li img {
     }
 
     .todos-quizes ul {
-        flex-direction: column;
+        flex-direction: column;        
     }
     
     .todos-quizes ul:last-child {
@@ -367,10 +378,13 @@ li img {
         justify-content: space-between;
     }
 
+    .titulo-quizes {
+       margin-bottom: 20px; 
+    }
+
     .banner-quiz {         
         height: 142px;
-    }
-    
+    }    
 
     .banner-titulo {           
         font-size: 19px;
