@@ -15,7 +15,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);    
 }
 
 .topo span {
@@ -131,24 +131,27 @@ ion-icon {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:flex-start;
     align-items: center;  
     margin-top: 12px; 
 }
 
 .todos-quizes ul li{
-    width: 340px;
+    width: 338px;
     height: 181px;
     border-radius: 5px;
     position: relative;
     margin-bottom: 15px;    
+    margin-right: 12px; 
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%);    
+    overflow: hidden;
 }
 
 li img {
-    width: 100%;
-    height: 100%;    
+    width: 100%;        
     border-radius: 5px;
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%);
+    position: relative;
+    z-index: -1; 
 }
 
 .titulo-imagem {
@@ -182,6 +185,9 @@ li img {
     width: 100%; 
     height: 227px;
     position: relative;
+    margin-bottom: 70px; 
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.6);      
 }
 
 .banner-titulo {           
@@ -191,24 +197,26 @@ li img {
     right: 25%;    
     color: #FFFFFF;
     font-weight: 400;
-    font-size: 39px;      
+    font-size: 39px;       
     text-align: center; 
-    position: absolute;
+    position: absolute;  
+    word-break: break-word;     
 }
 
 .banner-quiz img {
-    width: 100%;    
-    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: -1;            
 }
 
 .quiz-pergunta, .quiz-acerto {
     width: 100%;
     max-width: 750px;
-    height: auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    /* margin-top: 42px;                                                                                                                                  */
+    height: auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    margin: 0 auto;
     margin-bottom: 50px;
     padding: 27px 36px 36px 36px;
-    background-color: #fff;
+    background-color: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);    
 }
 
@@ -220,13 +228,14 @@ li img {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center;    
 }
 
 .header-pergunta span {
     color: #FFFFFF;
     font-size: 23px; 
-    font-weight: 700;  
+    font-weight: 700;
+    padding: 20px;      
 }
 
 .opcoes {
@@ -246,7 +255,9 @@ li img {
 
 .opcao img {
     width: 100%;
+    max-width: 329px;
     height: 100%;
+    max-height: 174px;
 }
 
 .opcao span{
@@ -255,24 +266,68 @@ li img {
     color: #000000;
     font-size: 20px;
     line-height: 23.44px;
-    font-weight: 700; 
+    font-weight: 700;
+    word-break: break-all;      
+}
+
+.opcao span .certa{
+    margin-top: 8px;
+    margin-bottom: 18px;
+    color: #009C22;
+    font-size: 20px;
+    line-height: 23.44px;
+    font-weight: 700;
+    word-break: break-all;      
+}
+
+.certa {   
+    color: #009C22 !important;      
+}
+
+.errada {   
+    color: #EC362D !important;      
+}
+
+
+
+.esbranquiçado {
+    opacity: 0.3;
+}
+
+.semesbranquiçado {
+    opacity: 1;
+    background-color: blue; 
+    position: relative;  
+    z-index: 6;
 }
 
 .quiz-acerto {
     height: 440px;
+    margin-bottom: 90px;
+}
+
+.quiz-acerto .opcoes {    
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .quiz-acerto .header-pergunta {
     background: #EC362D;
     height: 100px;
+    padding: 10px;
 }
 
 .quiz-acerto .opcao span {
-    width: 328px;   
+    width: 300px;   
     font-size: 19px;
     line-height: 25px; 
     text-align: left;
     color: #484848;    
+}
+
+.quiz-acerto img {
+    max-width:364px;
+    max-height: 273px;
 }
 
 .reiniciar-quiz {
@@ -309,7 +364,7 @@ li img {
     }
 
     .todos-quizes ul {
-        flex-direction: column;
+        flex-direction: column;        
     }
     
     .todos-quizes ul:last-child {
@@ -357,10 +412,13 @@ li img {
         justify-content: space-between;
     }
 
+    .titulo-quizes {
+       margin-bottom: 20px; 
+    }
+
     .banner-quiz {         
         height: 142px;
-    }
-    
+    }    
 
     .banner-titulo {           
         font-size: 19px;
