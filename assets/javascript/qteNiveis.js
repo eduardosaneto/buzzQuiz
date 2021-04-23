@@ -8,10 +8,10 @@ function quantidadeDeNiveis() {
                     <ion-icon class="expandir-nivel visivel" name="open-outline" onclick="selecao(this)"></ion-icon>
                 </span>
                 <div class="caixa-niveis escondido">
-                    <input type="text" placeholder="Título do nível">
-                    <input type="text" placeholder="% de acerto mínima">
-                    <input type="text" placeholder="URL da imagem do nível">
-                    <input type="text" placeholder="Descrição do nível">
+                    <input type="text" required minlength="10" placeholder="Título do nível">
+                    <input type="number" required min="0" placeholder="% de acerto mínima">
+                    <input type="url" required="required" placeholder="URL da imagem do nível">
+                    <input type="text" required minlength="30" placeholder="Descrição do nível">
                 </div>
             </div>`;
     }

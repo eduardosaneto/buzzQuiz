@@ -5,18 +5,15 @@ function avancaEtapaNiveis() {
         perguntasRespostas = [];
         perguntasRespostasIndividuais = [];
         return;
-    } else if(validaTituloPergunta(camposParaValidar) === true){
-        alert("Por favor, insira títulos para as perguntas que contenham pelo menos 20 caracteres");
+    } else if(validaTituloPergunta(camposDePerguntasParaValidar) === true){
         perguntasRespostas = [];
         perguntasRespostasIndividuais = [];
         return;
-    } else if(validaCorPerguntas(camposParaValidar) === true){
-        alert("Por favor, insira uma cor válida no formato hexadecimal (ex: #ffffff = Branco)");
+    } else if(validaCorPerguntas(camposDePerguntasParaValidar) === true){
         perguntasRespostas = [];
         perguntasRespostasIndividuais = [];
         return;
-    } else if(validaImagemPergunta(camposParaValidar) === true){
-        alert("Por favor, insira URLs validas para as imagens");
+    } else if(validaImagemPergunta(camposDePerguntasParaValidar) === true){
         perguntasRespostas = [];
         perguntasRespostasIndividuais = [];
         return;

@@ -3,74 +3,65 @@ let titulo;
 let imagem;
 let totalDePerguntas;
 let totalDeNiveis;
+let dadosIniciais = [];
+const camposBasicosParaValidar = camposBasicosVazios();
+
 const condicaoURL = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 let regexURL = new RegExp(condicaoURL);
 
 function camposBasicosVazios() {
+
+    dadosIniciais = []
+
+    titulo = caixaDadosBasicos[0].value;
+    imagem = caixaDadosBasicos[1].value;
+    totalDePerguntas = caixaDadosBasicos[2].value;
+    totalDeNiveis = caixaDadosBasicos[3].value;
+
+    dadosIniciais.push(titulo, imagem, totalDePerguntas, totalDeNiveis);
+
     for(let i = 0; i < caixaDadosBasicos.length; i++){
 
-        if(caixaDadosBasicos[i].value === "" || caixaDadosBasicos[i].value === null){
+        if(caixaDadosBasicos[i].value === ""){
             return true;
-        }
+        }        
     }
+
+    return dadosIniciais;
 }
 
-function recebeTitulo() {
-    titulo = caixaDadosBasicos[0].value;
-    return titulo;
-}
-
-function validaTituloQuiz(){
-
-    recebeTitulo();
+function validaTituloQuiz(elemento){
 
     if(titulo.length < 20 || titulo.length > 65){
-        titulo = "";
+        alert("Seu texto deve ter entre 20 e 65 caracteres");
+        dadosIniciais = []
         return true;
     } 
 }
 
-function recebeQtgePerguntas(){
-    totalDePerguntas = caixaDadosBasicos[2].value;
-    return totalDePerguntas
-}
-
 function validaQtdePerguntasQuiz() {
 
-    recebeQtgePerguntas();
-
-    if(totalDePerguntas < 3){        
-        titulo = "";
+    if(totalDePerguntas < 3){ 
+        alert("Por favor, escolha no mínimo 3 perguntas");       
+        dadosIniciais = []
         return true;
     }    
-}
-
-function recebeQtdeNiveis(){
-    totalDeNiveis = caixaDadosBasicos[3].value;
-    return totalDeNiveis;
 }
 
 function validaQtdeNiveisQuiz() {
 
-    recebeQtdeNiveis();
-
-    if(totalDeNiveis < 2){        
-        titulo = "";
+    if(totalDeNiveis < 2){    
+        alert("Por favor, escolha no mínimo 2 níveis");    
+        dadosIniciais = []
         return true;
     }    
 }
 
-function recebeImagemBasica() {
-    imagem = caixaDadosBasicos[1].value;
-    return imagem;
-}
-
 function validaImagemBasica() {
 
-    recebeImagemBasica()
-
     if (!imagem.match(regexURL)) {
-        titulo = "";
+        alert("Por favor, entre com uma URL válida");
+        dadosIniciais = []
         return true;
     } 
 }

@@ -2,7 +2,7 @@ let containerPerguntas;
 let caixaPerguntas;
 let perguntasRespostas = [];
 let perguntasRespostasIndividuais = [];
-let camposParaValidar = camposPerguntasVazios();
+let camposDePerguntasParaValidar = camposPerguntasVazios();
 
 const ehHex = /#[0-9A-F]{6}$/gi;
 let regexHex = new RegExp(ehHex);
@@ -58,7 +58,7 @@ function camposPerguntasVazios() {
 
         perguntasRespostas.push(perguntasRespostasIndividuais);
     }
-    
+
     return perguntasRespostas;
 }
 
@@ -66,6 +66,7 @@ function validaTituloPergunta(elemento){
 
     for(let i = 0; i < perguntasRespostas.length; i++) {
         if(perguntasRespostas[i][0].length < 20){
+            alert("Por favor, insira títulos para as perguntas que contenham pelo menos 20 caracteres");
             return true;
         } 
     }
@@ -75,6 +76,7 @@ function validaCorPerguntas(elemento) {
 
     for(let i = 0; i < perguntasRespostas.length; i++) {
         if(!perguntasRespostas[i][1].match(regexHex)){
+            alert("Por favor, insira uma cor válida no formato hexadecimal (ex: #ffffff = Branco)");
             return true;
         } 
     }
@@ -85,8 +87,10 @@ function validaImagemPergunta(elemento) {
 
     for(let i = 0; i < perguntasRespostas.length; i++){
         if(!perguntasRespostas[i][2].match(regexURL)){
+            alert("Por favor, insira URLs validas para as imagens");
             return true;
         } else if(perguntasRespostas[i][3] !== "" && !perguntasRespostas[i][4].match(regexURL)){
+            alert("Por favor, insira URLs validas para as imagens");
             return true;
         }         
     }

@@ -1,6 +1,6 @@
 const respostas = [];
 
-function respostasDoQuiz(){ //Retorna as respostas inseridas para o quiz
+function respostasDoQuiz(){
 
     containerPerguntas = document.querySelectorAll('.entrada-de-perguntas');
     
@@ -48,5 +48,6 @@ function respostasDoQuiz(){ //Retorna as respostas inseridas para o quiz
 
         respostas.push(respostasParaCadaPergunta);
     }
+    
     return respostas;
 }

@@ -6,35 +6,30 @@ const telaSucesso = telaDeCriacao[3];
 
 const avancar = document.querySelectorAll('.avancar');
 
-const dadosIniciais = [];
-
 function avancaEtapaPerguntas() {
 
     if(camposBasicosVazios() === true){
+
         alert("Por favor, preencha todos os campos");
         return;
-    } else if(validaTituloQuiz() === true){
-        alert("Seu texto deve ter entre 20 e 65 caracteres");
+    } else if(validaTituloQuiz(camposBasicosParaValidar) === true){
+
         return;
-    } else if(validaImagemBasica() === true){
-        alert("Por favor, entre com uma URL válida");;
+    } else if(validaImagemBasica(camposBasicosParaValidar) === true){
+
         return;
-    } else if(validaQtdePerguntasQuiz()  === true){
-        alert("Por favor, escolha no mínimo 3 perguntas");
+    } else if(validaQtdePerguntasQuiz(camposBasicosParaValidar)  === true){
+        
         return;
-    } else if(validaQtdeNiveisQuiz() === true){
-        alert("Por favor, escolha no mínimo 2 níveis");;
+    } else if(validaQtdeNiveisQuiz(camposBasicosParaValidar) === true){
+
         return;
     }
-
-    dadosIniciais.push(titulo, imagem, totalDePerguntas, totalDeNiveis);
 
     telaDeInfosBasicas.classList.add('escondido');
     telaPerguntas.classList.remove('escondido');
     
     quantidadeDePerguntas();    
-
-    console.log(dadosIniciais);
 
     return dadosIniciais;
 }

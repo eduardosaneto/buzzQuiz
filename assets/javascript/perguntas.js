@@ -1,6 +1,6 @@
 const perguntas = [];
 
-function perguntasDoQuiz() { //Retorna as perguntas inseridas para o quiz
+function perguntasDoQuiz() {
 
     caixaPerguntas =  document.querySelectorAll('.caixa-perguntas');
 
@@ -20,7 +20,7 @@ function perguntasDoQuiz() { //Retorna as perguntas inseridas para o quiz
 
         perguntas.push(pergunta);
     }
-    console.log(perguntas);
+
     return perguntas;    
 }
 

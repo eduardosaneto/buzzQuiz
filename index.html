@@ -16,7 +16,7 @@
         <header id="topo" onclick="voltaParaHome()" class="topo">
             <span>BuzzQuizz</span>
         </header>        
-        <section class="pagina-principal">           
+        <section class="pagina-principal escondido">           
             <div class="inserir-quiz">
                 <span>
                     Você não criou nenhum <br> quizz ainda  :(
@@ -164,7 +164,7 @@
                 <div class="entrada-de-dados">
                     <input type="text" required minlength="20" maxlength="65" placeholder="Título do seu quizz">
                     <input type="url" required="required" placeholder="URL da imagem do seu quizz">
-                    <input class="numero" type="number" required min="1" max="10" placeholder="Quantidade de perguntas do quizz">
+                    <input type="number" required min="1" max="10" placeholder="Quantidade de perguntas do quizz">
                     <input type="number" required min="1" max="10" placeholder="Quantidade de níveis do quizz">
                 </div>
                 <button class="avancar">Prosseguir pra criar perguntas</button>
@@ -273,10 +273,10 @@
                             <ion-icon class="expandir-nivel" name="open-outline" onclick="selecao(this)"></ion-icon>
                         </span>
                         <div class="caixa-niveis">
-                            <input type="text" placeholder="Título do nível">
-                            <input type="text" placeholder="% de acerto mínima">
-                            <input type="text" placeholder="URL da imagem do nível">
-                            <input type="text" placeholder="Descrição do nível">
+                            <input type="text" required minlength="10" placeholder="Título do nível">
+                            <input type="number" required min="0" placeholder="% de acerto mínima">
+                            <input type="url" required="required" placeholder="URL da imagem do nível">
+                            <input type="text" required minlength="30" placeholder="Descrição do nível">
                         </div>
                     </div>
 
@@ -286,10 +286,10 @@
                             <ion-icon class="expandir-nivel visivel" name="open-outline" onclick="selecao(this)"></ion-icon>
                         </span>
                         <div class="caixa-niveis escondido">
-                            <input type="text" placeholder="Título do nível">
-                            <input type="text" placeholder="% de acerto mínima">
-                            <input type="text" placeholder="URL da imagem do nível">
-                            <input type="text" placeholder="Descrição do nível">
+                            <input type="text" required minlength="10" placeholder="Título do nível">
+                            <input type="number" required min="0" placeholder="% de acerto mínima">
+                            <input type="url" required="required" placeholder="URL da imagem do nível">
+                            <input type="text" required minlength="30" placeholder="Descrição do nível">
                         </div>
                     </div>
                 </div>
@@ -321,14 +321,15 @@
         <script src="assets/javascript/script.js"></script>
         <script src="assets/javascript/validacaoBasica.js"></script>
         <script src="assets/javascript/qtePerguntas.js"></script>
+        <script src="assets/javascript/qteNiveis.js"></script>
         <script src="assets/javascript/avancaBasico.js"></script>
         <script src="assets/javascript/validacaoPergunta.js"></script>
         <script src="assets/javascript/avancaPergunta.js"></script>
-        <script src="assets/javascript/avancarNivel"></script>
+        <script src="assets/javascript/validacaoNivel.js"></script>
+        <script src="assets/javascript/avancaNivel.js"></script>
         <script src="assets/javascript/voltaTela.js"></script>
         <script src="assets/javascript/respostas.js"></script>
         <script src="assets/javascript/perguntas.js"></script>
-        <script src="assets/javascript/qteNiveis.js"></script>
         <script src="assets/javascript/niveis.js"></script>
         <script src="assets/javascript/selecao.js"></script>
         <script src="assets/javascript/finalizarQuiz.js"></script>
