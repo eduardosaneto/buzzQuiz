@@ -7,12 +7,16 @@ let textoLevel = null;
 let imagemLevel = null;
 let respostaComIdQuizClicado = null;
 
+obterQuizes();
+
+
 function obterQuizes() {
     const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes");    
     promessa.then(renderizaQuizes);
+    
 }
 
-function renderizaQuizes(resposta) {
+function renderizaQuizes(resposta) {    
     const quizes = resposta.data;        
     const primeiraLista = document.querySelector(".primeira-lista");  
 
@@ -25,7 +29,27 @@ function renderizaQuizes(resposta) {
             <img src="${imagem}" alt="">
             <span class="titulo-imagem">${titulo}</span>
         </li>`              
-    }    
+    }  
+    renderizaSeusQuizes(resposta);
+}
+
+function renderizaSeusQuizes(resposta){
+    const quizes = resposta.data;       
+    const listaSeusQuizes = document.querySelector("ul")   
+    listaSeusQuizes.innerHTML = "";    
+
+    for (let i = 0; i < idQuizesRenderizados.length; i++){        
+        const titulo = quizes[i].title;
+        const imagem = quizes[i].image; 
+        if (idQuizesRenderizados[i] === 9){ //aqui entra o id do local storage pra comparar//
+            listaSeusQuizes.innerHTML+= `
+                    <li onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
+                        <img src="${imagem}" alt="">
+                        <span class="titulo-imagem">${titulo}</span>
+                    </li>
+            `
+        }
+    }
 }
 
 function abreTelaQuiz () {
@@ -185,4 +209,3 @@ function criaQuiz() {
     paginaCriacaoQuiz.classList.remove("escondido");      
 }
 
-obterQuizes();

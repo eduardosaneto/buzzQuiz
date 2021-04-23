@@ -275,13 +275,14 @@ li img {
 }
 
 .opcao span{
+    max-width: 329px;
     margin-top: 8px;
     margin-bottom: 18px;
     color: #000000;
     font-size: 20px;
     line-height: 23.44px;
     font-weight: 700;
-    word-break: break-all;      
+    word-break: break-word;      
 }
 
 .opcao span .certa{
@@ -330,12 +331,13 @@ li img {
 }
 
 .quiz-acerto .opcao span {
-    width: 300px;   
+    width: 300px;     
+    max-height: 273px; 
     font-size: 19px;
     line-height: 25px; 
     text-align: left;
     color: #484848; 
-    word-break: break-word;   
+    word-break: break-word;     
 }
 
 .quiz-acerto img {
