@@ -117,7 +117,9 @@ function abreTelaQuiz () {
     const paginaPrincipal = document.querySelector(".pagina-principal");
     paginaPrincipal.classList.add("escondido");
     const paginaQuiz = document.querySelector(".pagina-quiz");
-    paginaQuiz.classList.remove("escondido");    
+    paginaQuiz.classList.remove("escondido");  
+    const paginaCriacaoQuiz = document.querySelector(".criacao-quiz");
+    paginaCriacaoQuiz.classList.add("escondido");
 }
 
 
