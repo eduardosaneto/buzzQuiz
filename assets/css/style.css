@@ -1,7 +1,7 @@
 body {
     background-color: #FAFAFA;
     font-family: 'Roboto', sans-serif;
-    font-style: normal;
+    font-style: normal;    
 }
 
 .topo {
@@ -111,6 +111,16 @@ ion-icon {
     margin-right: 0px;
 }
 
+.seus-quizes ul li {    
+    height: 181px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 15px;
+    margin-right: 12px;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%);
+    overflow: hidden;
+}
+
 .todos-quizes {
     width: 100%;
     display: flex;
@@ -124,7 +134,11 @@ ion-icon {
     color: #000;
     font-weight: 700;
     font-size: 20px;
-    line-height: 23.44px;
+    line-height: 23.44px;    
+}
+
+.titulo-quizes {
+    margin-top: 40px;
 }
 
 .todos-quizes ul {
@@ -261,13 +275,14 @@ li img {
 }
 
 .opcao span{
+    max-width: 329px;
     margin-top: 8px;
     margin-bottom: 18px;
     color: #000000;
     font-size: 20px;
     line-height: 23.44px;
     font-weight: 700;
-    word-break: break-all;      
+    word-break: break-word;      
 }
 
 .opcao span .certa{
@@ -287,8 +302,6 @@ li img {
 .errada {   
     color: #EC362D !important;      
 }
-
-
 
 .esbranquiçado {
     opacity: 0.3;
@@ -318,11 +331,13 @@ li img {
 }
 
 .quiz-acerto .opcao span {
-    width: 300px;   
+    width: 300px;     
+    max-height: 273px; 
     font-size: 19px;
     line-height: 25px; 
     text-align: left;
-    color: #484848;    
+    color: #484848; 
+    word-break: break-word;     
 }
 
 .quiz-acerto img {
@@ -353,6 +368,21 @@ li img {
     border: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+.topo:hover {
+    cursor: pointer;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+img:hover {
+    cursor: pointer;
+}
 
 @media(max-width: 1100px) {
     .pagina-principal {
@@ -401,8 +431,15 @@ li img {
     }    
 
     .seus-quizes li {
-        margin-bottom: 14px;
+        width: 100%;
+        max-width: 340px;
+        height: 181px;
+        border-radius: 5px;
+        margin-bottom: 14px;       
+        position: relative;
+        overflow: hidden;
     }
+    
 
     .seus-quizes li:last-child {
         margin-bottom: 0px;
@@ -454,6 +491,7 @@ li img {
    
     .header-pergunta {
         max-width: 340px;
+        height: 89px;
         margin: 0 auto;
     }
     
@@ -468,7 +506,8 @@ li img {
     }
     
     .opcao {
-        width: 163px;
+        width: 100%;
+        max-width: 163px;
         height: auto;
     }
     
@@ -476,6 +515,11 @@ li img {
         font-size: 13px;
         line-height: 15.23px;
         margin-bottom: 12px;
+    }
+
+    .quiz-acerto, .quiz-pergunta{
+        padding: 5px;
+        width: auto;        
     }
 
 

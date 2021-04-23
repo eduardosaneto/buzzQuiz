@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, inicial-scale=1.0, user-scalable=no">
 
         <title>BuzzQuizz</title>
-        <link rel="icon" href="assets/images/logoBz.JPG">
+        <link rel="icon" href="assets/images/buzzquizz.png">
 
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -13,10 +13,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;700&display=swap" rel="stylesheet">
     </html>
     <body>
-        <header class="topo">
+        <header id="topo" onclick="voltaParaHome()" class="topo">
             <span>BuzzQuizz</span>
-        </header>
-        <section class="pagina-principal escondido">
+        </header>        
+        <section class="pagina-principal">           
             <div class="inserir-quiz">
                 <span>
                     Você não criou nenhum <br> quizz ainda  :(
@@ -25,7 +25,7 @@
                     Criar Quizz
                 </button>
             </div>
-            <div class="seus-quizes escondido">
+            <div class="seus-quizes">
                 <span class="titulo-seus-quizes">
                     Seus Quizzes
                     <ion-icon name="add-circle" onclick="criaQuiz()">
@@ -33,11 +33,11 @@
                 </span>
                 <ul>
                     <li>
-                        <img src="assets/images/simpsons.png" alt="">
+                        <img src="assets/images/dumbledore.png" alt="">
                         <span class="titulo-imagem">titulo da imagem</span>
                     </li>
                     <li>
-                        <img src="assets/images/simpsons.png" alt="">
+                        <img src="assets/images/dumbledore.png" alt="">
                         <span class="titulo-imagem">titulo da imagem</span>
                     </li>
                 </ul>
