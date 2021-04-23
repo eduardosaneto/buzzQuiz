@@ -2,11 +2,12 @@ const perguntas = [];
 
 function perguntasDoQuiz() { //Retorna as perguntas inseridas para o quiz
 
+    caixaPerguntas =  document.querySelectorAll('.caixa-perguntas');
+
     respostasDoQuiz()
 
     for(let i = 0; i < dadosIniciais[2]; i++){
 
-        const caixaPerguntas =  document.querySelectorAll('.caixa-perguntas');
         const tituloPergunta = caixaPerguntas[i].children[0].value;
         const corPergunta = caixaPerguntas[i].children[1].value;
 

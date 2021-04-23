@@ -1,12 +1,13 @@
 const respostas = [];
 
 function respostasDoQuiz(){ //Retorna as respostas inseridas para o quiz
+
+    containerPerguntas = document.querySelectorAll('.entrada-de-perguntas');
     
     for(let i = 0; i < dadosIniciais[2]; i++){
 
         const respostasParaCadaPergunta = [];
 
-        const containerPerguntas = document.querySelectorAll('.entrada-de-perguntas');
         const determinarPergunta = containerPerguntas[i].children[1];
 
         const caixaRespostaCorreta = determinarPergunta.children[2];

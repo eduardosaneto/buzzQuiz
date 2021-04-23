@@ -16,7 +16,7 @@
         <header class="topo">
             <span>BuzzQuizz</span>
         </header>
-        <section class="pagina-principal">
+        <section class="pagina-principal escondido">
             <div class="inserir-quiz">
                 <span>
                     Você não criou nenhum <br> quizz ainda  :(
@@ -153,7 +153,7 @@
 
         <!-- TELA DO EDUARDO -->
 
-        <section class="criacao-quiz escondido">
+        <section class="criacao-quiz">
 
             <!-- Info básica -->
 
@@ -162,12 +162,13 @@
                     Comece pelo começo
                 </span>
                 <div class="entrada-de-dados">
-                    <input type="text" placeholder="Título do seu quizz">
-                    <input type="text" placeholder="URL da imagem do seu quizz">
-                    <input type="text" placeholder="Quantidade de perguntas do quizz">
-                    <input type="text" placeholder="Quantidade de níveis do quizz">
+                    <input type="text" required minlength="20" maxlength="65" placeholder="Título do seu quizz">
+                    <input type="url" required="required" placeholder="URL da imagem do seu quizz">
+                    <input class="numero" type="number" required min="1" max="10" placeholder="Quantidade de perguntas do quizz">
+                    <input type="number" required min="1" max="10" placeholder="Quantidade de níveis do quizz">
                 </div>
                 <button class="avancar">Prosseguir pra criar perguntas</button>
+                <button class="voltar">Voltar pra home</button>
             </section>
                 
             <!-- Pergunta do quiz -->
@@ -185,15 +186,15 @@
                         </span>
                         <div class="">
                             <div class="caixa-perguntas">
-                                <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
+                                <input type="text" required minlength="20" placeholder="Texto da pergunta">
+                                <input type="text" required pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Cor de fundo da pergunta"/>
                             </div>
                             <span>
                                 Resposta correta
                             </span>
                             <div class="resposta-correta">
                                 <input type="text" placeholder="Resposta correta">
-                                <input type="text" placeholder="URL da imagem">
+                                <input type="url" required="required" placeholder="URL da imagem">
                             </div>
                             <span>
                                 Respostas incorretas
@@ -201,15 +202,15 @@
                             <div class="caixa-respostas-incorretas">
                                 <div class="respostas-incorretas">
                                     <input type="text" placeholder="Resposta incorreta 1">
-                                    <input type="text" placeholder="URL da imagem 1">
+                                    <input type="url" required="required" placeholder="URL da imagem 1">
                                 </div>
                                 <div class="respostas-incorretas">
                                     <input type="text" placeholder="Resposta incorreta 2">
-                                    <input type="text" placeholder="URL da imagem 2">
+                                    <input type="url" required="required" placeholder="URL da imagem 2">
                                 </div>
                                 <div class="respostas-incorretas">
                                     <input type="text" placeholder="Resposta incorreta 3">
-                                    <input type="text" placeholder="URL da imagem 3">
+                                    <input type="url" required="required" placeholder="URL da imagem 3">
                                 </div>
                             </div>
                         </div>                    
@@ -222,15 +223,15 @@
                         </span>
                         <div class="escondido">
                             <div class="caixa-perguntas">
-                                <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
+                                <input type="text" required minlength="20" placeholder="Texto da pergunta">
+                                <input type="text" required pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Cor de fundo da pergunta"/>
                             </div>
                             <span>
                                 Resposta correta
                             </span>
                             <div class="resposta-correta">
                                 <input type="text" placeholder="Resposta correta">
-                                <input type="text" placeholder="URL da imagem">
+                                <input type="url" required="required" placeholder="URL da imagem">
                             </div>
                             <span>
                                 Respostas incorretas
@@ -238,15 +239,15 @@
                             <div class="caixa-respostas-incorretas">
                                 <div class="respostas-incorretas">
                                     <input type="text" placeholder="Resposta incorreta 1">
-                                    <input type="text" placeholder="URL da imagem 1">
+                                    <input type="url" required="required" placeholder="URL da imagem 1">
                                 </div>
                                 <div class="respostas-incorretas">
                                     <input type="text" placeholder="Resposta incorreta 2">
-                                    <input type="text" placeholder="URL da imagem 2">
+                                    <input type="url" required="required" placeholder="URL da imagem 2">
                                 </div>
                                 <div class="respostas-incorretas">
                                     <input type="text" placeholder="Resposta incorreta 3">
-                                    <input type="text" placeholder="URL da imagem 3">
+                                    <input type="url" required="required" placeholder="URL da imagem 3">
                                 </div>
                             </div>
                         </div> 
@@ -254,6 +255,7 @@
                 </div>
                 <div class="botao">
                     <button class="avancar">Prosseguir pra criar níveis</button>
+                    <!-- <button class="voltar">Voltar</button> -->
                 </div>
 
             </section>
@@ -293,6 +295,7 @@
                 </div>
                 <div class="botao">
                     <button class="avancar">Finalizar Quizz</button>
+                    <!-- <button class="voltar">Voltar</button> -->
                 </div>
             </section>
 
@@ -300,24 +303,29 @@
 
             <section class="etapa-de-criacao escondido">
                 <span class="titulo-da-etapa">
-                    Crie suas perguntas
+                    Seu quizz está pronto!
                 </span>
-                <div class="imagem-quiz">
-                    <img src="assets/images/bannerhp2.jpg" alt="">
-                    <span class="titulo-imagem">titulo da imagem</span>
+                <div class="container-imagem-sucesso">
+                    <!-- <div class="imagem-quiz">
+                        <img src="https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2020/05/zico-fla-602x338.jpg" alt="">
+                        <span class="titulo-imagem">titulo da imagem</span>
+                    </div> -->
                 </div>
                 <button class="avancar">Acessar Quizz</button>
-                <button class="volta-inicio">Voltar pra home</button>
-
+                <button class="voltar">Voltar pra home</button>
             </section>
         </section>
 
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="assets/javascript/script.js"></script>
-        <script src="assets/javascript/variaveisGlobais.js"></script>
-        <script src="assets/javascript/avancarTela.js"></script>
+        <script src="assets/javascript/validacaoBasica.js"></script>
         <script src="assets/javascript/qtePerguntas.js"></script>
+        <script src="assets/javascript/avancaBasico.js"></script>
+        <script src="assets/javascript/validacaoPergunta.js"></script>
+        <script src="assets/javascript/avancaPergunta.js"></script>
+        <script src="assets/javascript/avancarNivel"></script>
+        <script src="assets/javascript/voltaTela.js"></script>
         <script src="assets/javascript/respostas.js"></script>
         <script src="assets/javascript/perguntas.js"></script>
         <script src="assets/javascript/qteNiveis.js"></script>

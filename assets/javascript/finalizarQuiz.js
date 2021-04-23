@@ -18,10 +18,17 @@ function finalizarQuiz() {
 
 function retornaSucesso(resposta) {
     alert("você criou um quizz");
+
+    const imagemSucessoQuiz = document.querySelector('.container-imagem-sucesso');
+
+    imagemSucessoQuiz.innerHTML += `
+                    <img src="${dadosIniciais[1]}" alt="">
+                    <span class="titulo-imagem">${dadosIniciais[0]}</span>
+                    `;
 }
 
 function retornaErro(error) {
-    alert("Você não criou um quizz");
+    alert("Não foi possível criar o Quizz. Por favor, revise seus dados.");
 }
 
 avancar[2].addEventListener('click', finalizarQuiz);

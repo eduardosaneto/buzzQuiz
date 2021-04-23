@@ -10,8 +10,8 @@ function quantidadeDePerguntas() {
                         </span>
                         <div class="escondido">
                             <div class="caixa-perguntas">
-                                <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
+                                <input type="text" required minlength="20" placeholder="Texto da pergunta">
+                                <input type="text" required pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Cor de fundo da pergunta"/>
                             </div>
                             <span>
                                 Resposta correta
