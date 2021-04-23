@@ -60,4 +60,3 @@ function renderizaMeuUltimoQuiz(elemento) {
                         </button>
                         <button class="voltar" onclick="voltaPaginaPrincipal()">Voltar pra home</button>`;
 }
-
