@@ -15,7 +15,11 @@
     <body>
         <header id="topo" onclick="voltaParaHome()" class="topo">
             <span>BuzzQuizz</span>
-        </header>        
+        </header> 
+        <section class="carregamento escondido">
+            <img src="/assets/images/loading2.gif" alt="loading">
+            <span class="carregando">Carregando</span>
+        </section>       
         <section class="pagina-principal">           
             <div class="inserir-quiz">
                 <span>
@@ -28,127 +32,25 @@
             <div class="seus-quizes escondido">
                 <span class="titulo-seus-quizes">
                     Seus Quizzes
-                    <ion-icon name="add-circle" onclick="criaQuiz()">
+                    <ion-icon name="add-circle" onclick="criaQuiz(); carregamento3()" >
                     </ion-icon>
                 </span>
-                <ul>
-                    <li>
-                        <img src="assets/images/dumbledore.png" alt="">
-                        <span class="titulo-imagem">titulo da imagem</span>
-                    </li>
-                    <li>
-                        <img src="assets/images/dumbledore.png" alt="">
-                        <span class="titulo-imagem">titulo da imagem</span>
-                    </li>
-                </ul>
+                <ul></ul>
             </div>
             <div class="todos-quizes">
                 <span class="titulo-quizes">
                     Todos os Quizzes
                 </span>
-                <ul class="primeira-lista">                   
-                </ul>
-                <!-- <ul class="segunda-lista">
-                    <li>
-                        <img src="assets/images/simpsons.png" alt="">
-                        <span class="titulo-imagem">titulo da imagem</span>
-                    </li>
-                    <li>
-                        <img src="assets/images/simpsons.png" alt="">
-                        <span class="titulo-imagem">titulo da imagem</span>
-                    </li>
-                    <li>
-                        <img src="assets/images/simpsons.png" alt="">
-                        <span class="titulo-imagem">titulo da imagem</span>
-                    </li>
-                </ul> -->
+                <ul class="primeira-lista"></ul>                
             </div> 
-        </section>
-
-            <!-- TELA 2 - HAMANDA -->
-           
-        <section class="pagina-quiz escondido">
-
-            <!-- banner -->
-
-            <div class="banner-quiz">
-                <span class="banner-titulo">O quão Potterhead é você?</span>
-                <img src="assets/images/bannerhp2.jpg" alt="banner-quiz">
-            </div>  
-
-            <!-- pergunta 1 -->
-
+        </section>           
+        <section class="pagina-quiz escondido">   
+            <div class="banner-quiz"></div>  
+            <div class="quiz-pergunta"></div>  
             <div class="quiz-pergunta">
-                <div class="header-pergunta">
-                    <span>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</span>
-                </div>
-                <div class="opcoes">
-                    <div class="opcao">
-                        <img src="assets/images/gato.png" alt="gato">
-                        <span>Gatíneo</span>
-                    </div>    
-                    <div class="opcao">
-                        <img src="assets/images/gato.png" alt="gato">
-                        <span>Gatíneo</span>
-                    </div>
-
-                    <div class="opcao">
-                        <img src="assets/images/gato.png" alt="gato">
-                        <span>Gatíneo</span>
-                    </div>  
-                    <div class="opcao">
-                        <img src="assets/images/gato.png" alt="gato">
-                        <span>Gatíneo</span>
-                    </div>
-                </div>            
-            </div>  
-
-            <!-- pergunta 2 -->
-            <div class="quiz-pergunta">
-                <div class="header-pergunta">
-                    <span>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</span>
-                </div>
-                <div class="opcoes">
-                    <div class="opcoes-cima">
-                        <div class="opcao">
-                            <img src="assets/images/gato.png" alt="gato">
-                            <span>Gatíneo</span>
-                        </div>    
-                        <div class="opcao">
-                            <img src="assets/images/gato.png" alt="gato">
-                            <span>Gatíneo</span>
-                        </div>
-                    </div>  
-                    <div class="opcoes-baixo">
-                        <div class="opcao">
-                            <img src="assets/images/gato.png" alt="gato">
-                            <span>Gatíneo</span>
-                        </div>  
-                        <div class="opcao">
-                            <img src="assets/images/gato.png" alt="gato">
-                            <span>Gatíneo</span>
-                        </div>
-                    </div> 
-                </div>            
-            </div>   
-
-            <!-- acerto -->
-
-            <div class="quiz-acerto">
-                <div class="header-pergunta">
-                    <span>88% de acerto: Você é praticamente um aluno de Hogwarts!</span>
-                </div>
-                <div class="opcoes">
-                    <div class="opcao">
-                        <img src="assets/images/dumbledore.png" alt="dumbledore">                        
-                    </div>    
-                    <div class="opcao">                        
-                        <span>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</span>
-                    </div>                    
-                </div>      
-            </div> 
-            <button class="reiniciar-quiz">Reiniciar quizz</button> 
-            <button class="voltar-home">Voltar para home</button>               
+                <div class="header-pergunta"></div>
+                <div class="opcoes"></div>
+            </div>            
         </section>
 
         <!-- TELA DO EDUARDO -->
