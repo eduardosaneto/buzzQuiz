@@ -25,7 +25,7 @@ function renderizaQuizes(resposta) {
         const titulo = quizes[i].title;
         const imagem = quizes[i].image;       
         primeiraLista.innerHTML+= `
-        <li onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
+        <li id="${quizes[i].id}" onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
             <img src="${imagem}" alt="">
             <span class="titulo-imagem">${titulo}</span>
         </li>`              
@@ -34,21 +34,37 @@ function renderizaQuizes(resposta) {
 }
 
 function renderizaSeusQuizes(resposta){
+    const dadosSerializados = localStorage.getItem("dadosMeuQuizCriado")
+    const dadosDeserializados = JSON.parse(dadosSerializados);
+    console.log(dadosDeserializados);
+
     const quizes = resposta.data;       
     const listaSeusQuizes = document.querySelector("ul")   
-    listaSeusQuizes.innerHTML = "";    
+    listaSeusQuizes.innerHTML = "";  
+    console.log(dadosDeserializados.length)
+       
 
     for (let i = 0; i < idQuizesRenderizados.length; i++){        
         const titulo = quizes[i].title;
-        const imagem = quizes[i].image; 
-        if (idQuizesRenderizados[i] === 9){ //aqui entra o id do local storage pra comparar//
-            listaSeusQuizes.innerHTML+= `
-                    <li onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
-                        <img src="${imagem}" alt="">
-                        <span class="titulo-imagem">${titulo}</span>
-                    </li>
-            `
-        }
+        const imagem = quizes[i].image;
+       
+        for (let j = 0; j < dadosDeserializados.length; j++){                                 
+            if (idQuizesRenderizados[i] == dadosDeserializados[j]){
+                let listaTodosQuizes = document.querySelector(".primeira-lista");
+                let quizASerRemovido = document.getElementById(dadosDeserializados[j]);
+
+                listaTodosQuizes.removeChild(quizASerRemovido);
+
+                console.log("entrei") 
+                listaSeusQuizes.innerHTML+= `
+                        <li onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
+                            <img src="${imagem}" alt="">
+                            <span class="titulo-imagem">${titulo}</span>
+                        </li>
+                    `
+            }
+        } 
+        
     }
 }
 

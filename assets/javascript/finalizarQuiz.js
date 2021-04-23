@@ -1,3 +1,7 @@
+let RespostaMeuQuiz = null;
+let dadosSerializados = null;
+let testando = 0;
+
 function finalizarQuiz() {
     
     const dadosQuiz = 
@@ -17,7 +21,14 @@ function finalizarQuiz() {
 }   
 
 function retornaSucesso(resposta) {
-    alert("você criou um quizz");
+    alert("Você criou um quizz");        
+    RespostaMeuQuiz = resposta.data;       
+    let listaDeIDs = [];
+        if (localStorage.getItem("dadosMeuQuizCriado") !== null){            
+            listaDeIDs = (JSON.parse(localStorage.getItem("dadosMeuQuizCriado")));                      
+        }   
+    listaDeIDs.push(JSON.stringify(RespostaMeuQuiz.id))
+    localStorage.setItem("dadosMeuQuizCriado", JSON.stringify(listaDeIDs));
 }
 
 function retornaErro(error) {
