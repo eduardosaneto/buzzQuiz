@@ -43,7 +43,6 @@ function respostasDoQuiz(){
 
                 respostasParaCadaPergunta.push(respostaIncorreta);
             }
-
         }
 
         respostas.push(respostasParaCadaPergunta);
