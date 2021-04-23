@@ -9,14 +9,56 @@ let respostaComIdQuizClicado = null;
 
 obterQuizes();
 
-
-function obterQuizes() {
-    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes");    
-    promessa.then(renderizaQuizes);
-    
+function carregamento(){
+    const paginaPrincipal = document.querySelector(".pagina-principal");
+    paginaPrincipal.classList.add("escondido");
+    const carregamento = document.querySelector(".carregamento");
+    carregamento.classList.remove("escondido")
 }
 
-function renderizaQuizes(resposta) {    
+function desfazCarregamento(){
+    const paginaPrincipal = document.querySelector(".pagina-principal");
+    paginaPrincipal.classList.remove("escondido");
+    const carregamento = document.querySelector(".carregamento");
+    carregamento.classList.add("escondido")
+}
+
+function carregamento2(){
+    const paginaPrincipal = document.querySelector(".pagina-quiz");
+    paginaPrincipal.classList.add("escondido");
+    const carregamento = document.querySelector(".carregamento");
+    carregamento.classList.remove("escondido")
+}
+
+function desfazCarregamento2(){
+    const paginaPrincipal = document.querySelector(".pagina-quiz");
+    paginaPrincipal.classList.remove("escondido");
+    const carregamento = document.querySelector(".carregamento");
+    carregamento.classList.add("escondido")
+}
+
+function carregamento3(){
+    const carregamento = document.querySelector(".carregamento");
+    carregamento.classList.remove("escondido")
+    const paginaCriacaoQuiz = document.querySelector(".criacao-quiz");
+    paginaCriacaoQuiz.classList.add("escondido")
+    setTimeout(desfazCarregamento3, 2000)
+}
+
+function desfazCarregamento3(){
+    const paginaPrincipal = document.querySelector(".criacao-quiz");
+    paginaPrincipal.classList.remove("escondido");
+    const carregamento = document.querySelector(".carregamento");
+    carregamento.classList.add("escondido")
+}
+
+function obterQuizes() {
+    carregamento()    
+    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes");            
+    promessa.then(renderizaQuizes);      
+}
+
+function renderizaQuizes(resposta) {      
     const quizes = resposta.data;        
     const primeiraLista = document.querySelector(".primeira-lista");  
 
@@ -31,9 +73,10 @@ function renderizaQuizes(resposta) {
         </li>`              
     }  
     renderizaSeusQuizes(resposta);
+    desfazCarregamento() 
 }
 
-function renderizaSeusQuizes(resposta){
+function renderizaSeusQuizes(resposta){    
     const dadosSerializados = localStorage.getItem("dadosMeuQuizCriado")
     const dadosDeserializados = JSON.parse(dadosSerializados);
     console.log(dadosDeserializados);
@@ -80,24 +123,24 @@ function abreTelaQuiz () {
 }
 
 
-function buscaQuizClicado (idQuizClicado) {       
+function buscaQuizClicado (idQuizClicado) {     
     const promessa = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/${idQuizClicado}`);    
     promessa.then(renderizaQuizClicado) 
+    carregamento2()
 }
 
-function renderizaQuizClicado (resposta){  
+function renderizaQuizClicado (resposta){       
     respostaComIdQuizClicado = resposta;  
     const dados = resposta.data;        
     const identificador = dados.id;   
     const imagemQuiz = dados.image;    
     const tituloQuiz = dados.title;
     questoes = dados.questions;
-    leveis = dados.levels;     
-    
+    leveis = dados.levels;
     
     const banner = document.querySelector(".banner-quiz")
     banner.scrollIntoView();                
-    const paginaQuiz = document.querySelector(".pagina-quiz") 
+    const paginaQuiz = document.querySelector(".pagina-quiz")     
       
     paginaQuiz.innerHTML = "";  
           
@@ -136,11 +179,12 @@ function renderizaQuizClicado (resposta){
             resultadoFinal += "</div> </div>"
             paginaQuiz.innerHTML = resultadoFinal;                                                           
         } 
-          
+    
+    setTimeout(desfazCarregamento2,2000)        
 }
 
 function embaralha(){
-    return Math.random() - 0.5;  
+    return Math.random() - 0.5;       
 }
 
 function cliqueNaOpcao (opcaoClicada){          
