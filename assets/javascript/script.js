@@ -48,7 +48,8 @@ function renderizaQuizClicado (resposta){
     const imagemQuiz = dados.image;    
     const tituloQuiz = dados.title;
     questoes = dados.questions;
-    leveis = dados.levels;  
+    leveis = dados.levels;     
+    
     
     const banner = document.querySelector(".banner-quiz")
     banner.scrollIntoView();                
