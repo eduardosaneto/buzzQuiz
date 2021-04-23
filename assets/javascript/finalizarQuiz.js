@@ -58,6 +58,6 @@ function renderizaMeuUltimoQuiz(elemento) {
                         <button id="${idMeuNovoQuiz}" class="avancar" onclick="abreTelaQuiz(); buscaQuizClicado(${idMeuNovoQuiz})">
                             Acessar Quizz
                         </button>
-                        <button class="voltar">Voltar pra home</button>`;
+                        <button class="voltar" onclick="voltaPaginaPrincipal()">Voltar pra home</button>`;
 }
 
