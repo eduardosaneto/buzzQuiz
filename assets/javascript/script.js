@@ -104,6 +104,10 @@ function renderizaSeusQuizes(resposta){
                         <li onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
                             <img src="${imagem}" alt="">
                             <span class="titulo-imagem">${titulo}</span>
+                            <div class="editar-excluir">
+                                <ion-icon class="editar" name="create-outline"></ion-icon>
+                                <ion-icon class="excluir" name="trash-outline"></ion-icon>
+                            </div>
                         </li>
                     `
                     console.log(keyMeuQuiz)  
