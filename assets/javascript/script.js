@@ -41,7 +41,7 @@ function renderizaSeusQuizes(resposta){
     const quizes = resposta.data;       
     const listaSeusQuizes = document.querySelector("ul")   
     listaSeusQuizes.innerHTML = "";  
-    console.log(dadosDeserializados.length)
+    console.log(dadosDeserializados)
        
 
     for (let i = 0; i < idQuizesRenderizados.length; i++){        
@@ -50,23 +50,25 @@ function renderizaSeusQuizes(resposta){
        
         for (let j = 0; j < dadosDeserializados.length; j++){                                 
             if (idQuizesRenderizados[i] == dadosDeserializados[j]){
+                const inserirQuiz = document.querySelector(".inserir-quiz");
+                inserirQuiz.classList.add('escondido');
+                const seusQuizes = document.querySelector(".seus-quizes");
+                seusQuizes.classList.remove('escondido');
                 let listaTodosQuizes = document.querySelector(".primeira-lista");
                 let quizASerRemovido = document.getElementById(dadosDeserializados[j]);
-
-                listaTodosQuizes.removeChild(quizASerRemovido);
-
-                console.log("entrei") 
+                listaTodosQuizes.removeChild(quizASerRemovido);                
                 listaSeusQuizes.innerHTML+= `
                         <li onclick="abreTelaQuiz(); buscaQuizClicado(${idQuizesRenderizados[i]})">
                             <img src="${imagem}" alt="">
                             <span class="titulo-imagem">${titulo}</span>
                         </li>
                     `
-            }
+            } 
         } 
         
     }
 }
+
 
 function abreTelaQuiz () {
     const paginaPrincipal = document.querySelector(".pagina-principal");
