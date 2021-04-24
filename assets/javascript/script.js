@@ -42,7 +42,7 @@ function carregamento3(){
     carregamento.classList.remove("escondido")
     const paginaCriacaoQuiz = document.querySelector(".criacao-quiz");
     paginaCriacaoQuiz.classList.add("escondido")
-    setTimeout(desfazCarregamento3, 2000)
+    setTimeout(desfazCarregamento3, 1000)
 }
 
 function desfazCarregamento3(){
@@ -73,7 +73,7 @@ function renderizaQuizes(resposta) {
         </li>`              
     }  
     renderizaSeusQuizes(resposta);
-    desfazCarregamento() 
+    desfazCarregamento()       
 }
 
 function renderizaSeusQuizes(resposta){    
@@ -110,10 +110,12 @@ function renderizaSeusQuizes(resposta){
                             </div>
                         </li>
                     `
+                    console.log(keyMeuQuiz)  
             } 
         } 
         
     }
+    
 }
 
 
@@ -276,4 +278,8 @@ function criaQuiz() {
     const paginaCriacaoQuiz = document.querySelector(".criacao-quiz");
     paginaCriacaoQuiz.classList.remove("escondido");      
 }
+
+// function editarQuiz(){
+
+// }
 

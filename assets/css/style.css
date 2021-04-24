@@ -131,10 +131,6 @@ ion-icon {
     margin-right: 15px;
 }
 
-.seus-quizes li:last-child {
-    margin-right: 0px;
-}
-
 .seus-quizes ul li {    
     height: 181px;
     border-radius: 5px;

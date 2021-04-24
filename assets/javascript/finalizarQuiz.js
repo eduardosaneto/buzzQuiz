@@ -1,4 +1,5 @@
 let RespostaMeuQuiz = null;
+let keyMeuQuiz = null;
 let dadosSerializados = null;
 let testando = 0;
 
@@ -43,6 +44,7 @@ function retornaSucesso(resposta) {
     alert("você criou um lindo Quizz");
 
     renderizaMeuUltimoQuiz(RespostaMeuQuiz);
+    keyMeuQuiz = RespostaMeuQuiz.key;
 
     return RespostaMeuQuiz;
 
