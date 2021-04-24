@@ -21,15 +21,14 @@ function deletarQuiz(id) {
 
         }    
 
- 
-
     const header = {
-        Secret-Key: keyCorreta;
+        "Secret-Key": keyCorreta
     }
 
     const promessa = axios.delete("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/${novoId}", header);
 
     promessa.then(confirmarDeletar);    
+    
 }
 
 function confirmarDeletar(resposta) {

@@ -73,19 +73,16 @@ function renderizaQuizes(resposta) {
         </li>`              
     }  
     renderizaSeusQuizes(resposta);
-    desfazCarregamento()       
+    desfazCarregamento() 
 }
 
 function renderizaSeusQuizes(resposta){    
     const dadosSerializados = localStorage.getItem("dadosMeuQuizCriado")
     const dadosDeserializados = JSON.parse(dadosSerializados);
-    console.log(dadosDeserializados);
 
     const quizes = resposta.data;       
     const listaSeusQuizes = document.querySelector("ul")   
     listaSeusQuizes.innerHTML = "";  
-    console.log(dadosDeserializados)
-       
 
     for (let i = 0; i < idQuizesRenderizados.length; i++){        
         const titulo = quizes[i].title;
@@ -105,17 +102,15 @@ function renderizaSeusQuizes(resposta){
                             <img src="${imagem}" alt="">
                             <span class="titulo-imagem">${titulo}</span>
                             <div class="editar-excluir">
-                                <ion-icon id="${idQuizesRenderizados[i]}" class="editar" name="create-outline"></ion-icon>
-                                <ion-icon id="${idQuizesRenderizados[i]}" class="excluir" name="trash-outline"></ion-icon>
+                                <ion-icon id="${idQuizesRenderizados[i]}" class="editar" name="create-outline" onclick="deletarQuiz(${idQuizesRenderizados[i]})"></ion-icon>
+                                <ion-icon id="${idQuizesRenderizados[i]}" class="excluir" name="trash-outline" onclick="deletarQuiz(${idQuizesRenderizados[i]})></ion-icon>
                             </div>
                         </li>
                     `
-                    console.log(keyMeuQuiz)  
             } 
         } 
         
     }
-    
 }
 
 
@@ -278,8 +273,4 @@ function criaQuiz() {
     const paginaCriacaoQuiz = document.querySelector(".criacao-quiz");
     paginaCriacaoQuiz.classList.remove("escondido");      
 }
-
-// function editarQuiz(){
-
-// }
 
