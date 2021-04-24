@@ -105,8 +105,8 @@ function renderizaSeusQuizes(resposta){
                             <img src="${imagem}" alt="">
                             <span class="titulo-imagem">${titulo}</span>
                             <div class="editar-excluir">
-                                <ion-icon class="editar" name="create-outline"></ion-icon>
-                                <ion-icon class="excluir" name="trash-outline"></ion-icon>
+                                <ion-icon id="${idQuizesRenderizados[i]}" class="editar" name="create-outline"></ion-icon>
+                                <ion-icon id="${idQuizesRenderizados[i]}" class="excluir" name="trash-outline"></ion-icon>
                             </div>
                         </li>
                     `

@@ -20,14 +20,25 @@ function finalizarQuiz() {
 
 function retornaSucesso(resposta) {
 
-    RespostaMeuQuiz = resposta.data;       
+    RespostaMeuQuiz = resposta.data;    
+    
+    console.log(RespostaMeuQuiz.key);
 
     let listaDeIDs = [];
         if (localStorage.getItem("dadosMeuQuizCriado") !== null){            
             listaDeIDs = (JSON.parse(localStorage.getItem("dadosMeuQuizCriado")));                      
-       }    
+        }    
     listaDeIDs.push(JSON.stringify(RespostaMeuQuiz.id))
     localStorage.setItem("dadosMeuQuizCriado", JSON.stringify(listaDeIDs));
+
+    let listaDeIDsKeys = [];
+        if (localStorage.getItem("minhasChavesEIDsDoQuiz") !== null){            
+            listaDeIDsKeys = (JSON.parse(localStorage.getItem("minhasChavesEIDsDoQuiz")));                      
+        }    
+    listaDeIDsKeys.push(JSON.stringify(RespostaMeuQuiz.id), RespostaMeuQuiz.key);
+    localStorage.setItem("minhasChavesEIDsDoQuiz", JSON.stringify(listaDeIDsKeys));
+
+    console.log(idQuizesRenderizados);
 
     alert("você criou um lindo Quizz");
 
