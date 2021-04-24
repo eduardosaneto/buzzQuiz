@@ -72,7 +72,14 @@ function renderizaQuizes(resposta) {
             <span class="titulo-imagem">${titulo}</span>
         </li>`              
     }  
-    renderizaSeusQuizes(resposta);
+
+    const dadosSerializados = localStorage.getItem("dadosMeuQuizCriado")
+    const dadosDeserializados = JSON.parse(dadosSerializados);
+
+    if(dadosDeserializados !== null){
+        renderizaSeusQuizes(resposta);
+    }
+
     desfazCarregamento() 
 }
 
